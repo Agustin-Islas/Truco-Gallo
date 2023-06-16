@@ -1,0 +1,9 @@
+.puntos {
+  display: flex;
+  justify-content: center;
+}
+
+.equipo {
+  margin: 20px;
+  text-align: center;
+}
