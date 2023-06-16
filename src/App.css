@@ -1,9 +1,94 @@
-.puntos {
-  display: flex;
-  justify-content: center;
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #6661FF; /* Agregado el color de fondo */
+  color: #ccc;
 }
 
-.equipo {
-  margin: 20px;
+.container {
   text-align: center;
+  padding: 20px;
+  
+}
+
+.title {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #fff; /* Cambia el color del texto a blanco */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); /* Agrega un efecto de sombra al texto */
+}
+
+.team-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.team {
+  width: 30%;
+  border: 1px solid #242222f6;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #242428; /* Modifica el color de fondo aquí */
+}
+
+.team-label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.team-input {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.team-score {
+  margin-top: 20px;
+}
+
+.team-name {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.points {
+  font-size: 16px;
+}
+
+.buttons {
+  margin-top: 20px;
+}
+
+.btn {
+  padding: 8px 16px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 3px;
+  font-size: 14px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: #fff;
+}
+
+.btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.reset-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 3px;
+  font-size: 14px;
+  cursor: pointer;
+  background-color: #F6CACA;
+  color: #bb5353;
+}
+
+.reset-btn:hover {
+  background-color: #c82333;
 }

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './App.css';
 
 function App() {
   const [nombreEquipo1, setNombreEquipo1] = useState('Equipo 1');
@@ -11,6 +12,12 @@ function App() {
   const sumarPunto = (equipo, setPuntosEquipo) => {
     if (equipo < 30) {
       setPuntosEquipo(equipo + 1);
+    }
+  };
+
+  const restarPunto = (equipo, setPuntosEquipo) => {
+    if (equipo > 0) {
+      setPuntosEquipo(equipo - 1);
     }
   };
 
@@ -33,44 +40,68 @@ function App() {
   };
 
   return (
-    <div>
-      <h1>Truco Argentino - Anotador de Puntos</h1>
-      <div>
-        <label>
-          Nombre Equipo 1:
-          <input type="text" value={nombreEquipo1} onChange={handleChangeNombreEquipo1} />
-        </label>
-      </div>
-      <div>
-        <label>
-          Nombre Equipo 2:
-          <input type="text" value={nombreEquipo2} onChange={handleChangeNombreEquipo2} />
-        </label>
-      </div>
-      <div>
-        <label>
-          Nombre Equipo 3:
-          <input type="text" value={nombreEquipo3} onChange={handleChangeNombreEquipo3} />
-        </label>
-      </div>
-      <div className="puntos">
-        <div className="equipo">
-          <h2>{nombreEquipo1}</h2>
-          <p>Puntos: {puntosEquipo1}</p>
-          <button onClick={() => sumarPunto(puntosEquipo1, setPuntosEquipo1)} disabled={puntosEquipo1 >= 30}>
-            Sumar Punto
-          </button>
+    <div className="container">
+      <h1 className="title">TRUCO GALLO - Anotador de Puntos</h1>
+      <div className="team-container">
+        <div className="team">
+          <label className="team-label">
+            Nombre Equipo 1:
+            <input className="team-input" type="text" value={nombreEquipo1} onChange={handleChangeNombreEquipo1} />
+          </label>
+          <div className="team-score">
+            <h2 className="team-name">{nombreEquipo1}</h2>
+            <p className="points">Puntos: {puntosEquipo1}</p>
+            <div className="buttons">
+              <button className="btn" onClick={() => sumarPunto(puntosEquipo1, setPuntosEquipo1)} disabled={puntosEquipo1 >= 30}>
+                Sumar Punto
+              </button>
+              <button className="btn" onClick={() => restarPunto(puntosEquipo1, setPuntosEquipo1)} disabled={puntosEquipo1 <= 0}>
+                Restar Punto
+              </button>
+            </div>
+          </div>
         </div>
-        <div className="equipo">
-          <h2>{nombreEquipo2}</h2>
-          <p>Puntos: {puntosEquipo2}</p>
-          <button onClick={() => sumarPunto(puntosEquipo2, setPuntosEquipo2)} disabled={puntosEquipo2 >= 30}>
-            Sumar Punto
-          </button>
+        <div className="team">
+          <label className="team-label">
+            Nombre Equipo 2:
+            <input className="team-input" type="text" value={nombreEquipo2} onChange={handleChangeNombreEquipo2} />
+          </label>
+          <div className="team-score">
+            <h2 className="team-name">{nombreEquipo2}</h2>
+            <p className="points">Puntos: {puntosEquipo2}</p>
+            <div className="buttons">
+            <button className="btn" onClick={() => sumarPunto(puntosEquipo2, setPuntosEquipo2)} disabled={puntosEquipo2 >= 30}>
+                Sumar Punto
+              </button>
+              <button className="btn" onClick={() => restarPunto(puntosEquipo2, setPuntosEquipo2)} disabled={puntosEquipo2 <= 0}>
+                Restar Punto
+              </button>
+            </div>
+          </div>
         </div>
-        <div className="equipo">
-          <h2>{nombreEquipo3}</h2>
-          <p>Puntos: {puntosEquipo3}</p>
-          <button onClick={() => sumarPunto(puntosEquipo3, setPuntosEquipo3)} disabled={puntosEquipo3 >= 30}>
-            Sumar Punto
-          </button>
+        <div className="team">
+          <label className="team-label">
+            Nombre Equipo 3:
+            <input className="team-input" type="text" value={nombreEquipo3} onChange={handleChangeNombreEquipo3} />
+          </label>
+          <div className="team-score">
+            <h2 className="team-name">{nombreEquipo3}</h2>
+            <p className="points">Puntos: {puntosEquipo3}</p>
+            <div className="buttons">
+              <button className="btn" onClick={() => sumarPunto(puntosEquipo3, setPuntosEquipo3)} disabled={puntosEquipo3 >= 30}>
+                Sumar Punto
+              </button>
+              <button className="btn" onClick={() => restarPunto(puntosEquipo3, setPuntosEquipo3)} disabled={puntosEquipo3 <= 0}>
+                Restar Punto
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button className="reset-btn" onClick={reiniciarPuntos}>Reiniciar</button>
+    </div>
+  );
+}
+
+export default App;
+
